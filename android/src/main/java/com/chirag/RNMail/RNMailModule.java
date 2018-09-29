@@ -88,9 +88,7 @@ public class RNMailModule extends ReactContextBaseJavaModule {
       ReadableMap attachment = options.getMap("attachment");
       if (attachment.hasKey("path") && !attachment.isNull("path")) {
         String path = attachment.getString("path");
-        File file = new File(path);
-        Uri p = Uri.fromFile(file);
-        i.putExtra(Intent.EXTRA_STREAM, p);
+        i.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
       }
     }
 
